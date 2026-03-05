@@ -11,6 +11,7 @@ created: YYYY-MM-DD
      INSTRUCTIONS FOR AGENTS:
      - Do not modify this document unless explicitly asked
      - Use this as the source of truth for the milestone's scope and goals
+     - Use the URA section as the source of truth for uncertainty handling
      - Reference this when evaluating whether a PRD aligns with the milestone
 -->
 
@@ -83,6 +84,52 @@ created: YYYY-MM-DD
 
 - Constraint 1
 - Constraint 2
+
+## Unknowns, Risks, and Assumptions (URA)
+
+<!-- This section defines how uncertainty will be managed for the entire milestone.
+     Keep it concise and operational. PRDs and phase plans must align with it. -->
+
+### Risk Appetite and Escalation Thresholds
+
+<!-- Define what level of risk is acceptable and when escalation is mandatory.
+     Example:
+     - Schedule variance tolerance: <= 10%
+     - Security risks with Impact >= 4 require immediate escalation
+     - Any unresolved risk score >= 16 (Likelihood x Impact) blocks phase close
+-->
+
+- Appetite rule 1
+- Appetite rule 2
+
+### Critical Assumptions
+
+<!-- Capture assumptions that, if false, would materially change scope, timeline,
+     architecture, or compliance posture. -->
+
+| Assumption | Confidence (1-5) | Validation Plan | Validation Deadline | Owner | Status |
+|------------|------------------|-----------------|---------------------|-------|--------|
+| Assumption 1 | 3 | Validate via spike/analysis | YYYY-MM-DD | Name/Role | open |
+| Assumption 2 | 4 | Validate via prototype/test | YYYY-MM-DD | Name/Role | open |
+
+### Priority Unknowns
+
+<!-- Unknowns are unanswered questions that need evidence before committing.
+     Every priority unknown should have a discovery action and decision date. -->
+
+| Unknown | Why It Matters | Discovery Action | Decision Deadline | Owner | Status |
+|---------|----------------|------------------|-------------------|-------|--------|
+| Unknown 1 | Could affect architecture choice | Time-boxed spike | YYYY-MM-DD | Name/Role | open |
+| Unknown 2 | Could affect delivery plan | User/tech validation | YYYY-MM-DD | Name/Role | open |
+
+### Top Milestone Risks
+
+<!-- Use If/Then phrasing to keep risk statements testable.
+     Example: If payment provider latency exceeds 1.5s, then checkout conversion may drop. -->
+
+| Risk Statement (If..., then...) | Likelihood (1-5) | Impact (1-5) | Response Strategy | Trigger | Owner | Status |
+|---------------------------------|------------------|--------------|-------------------|---------|-------|--------|
+| If [condition], then [consequence] | 3 | 4 | reduce | Trigger signal | Name/Role | monitoring |
 
 ## Stakeholders
 

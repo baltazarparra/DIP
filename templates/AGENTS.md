@@ -21,7 +21,8 @@ This project follows the **DIP — Deep Implementation Protocol**.
 2. Read `implementation-phases.md` to identify the current phase and its status
 3. Read **all** PRDs in the active phase's directory (`phases/phase-N/`)
 4. Check reports from previous phases in `reports/` for context on what was already built
-5. Only work on PRDs with status `pending` or `in-progress`
+5. Review active URA items (Unknowns, Risks, Assumptions) in milestone, phase plan, and PRDs
+6. Only work on PRDs with status `pending` or `in-progress`
 
 ## Protocol Flow
 
@@ -33,6 +34,16 @@ A phase is complete when **all PRDs** within it have status `completed`. After c
 1. Generate a report in `reports/report-phase-N.md`
 2. Update `implementation-phases.md` to mark the phase as completed
 3. Update this file to point to the next phase
+
+## URA Operating Rules
+
+`URA = Unknowns, Risks, Assumptions`
+
+1. Update PRD status to `in-progress` when starting implementation
+2. Keep PRD URA entries current while implementing
+3. If a risk materializes, record it as an issue in phase tracking/report
+4. If a critical assumption is invalidated, stop and re-plan before continuing
+5. Do not close a phase with unresolved high-impact risk unless explicitly accepted
 
 ## Setup Commands
 

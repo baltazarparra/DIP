@@ -31,9 +31,17 @@ Every PRD MUST contain these sections in order:
 1. **Description** — What needs to be built, with enough detail for implementation
 2. **Acceptance Criteria** — Testable checkboxes defining "done"
 3. **Non-Functional Requirements** — Performance, security, accessibility targets
-4. **Technical Considerations** — Architecture decisions, dependencies, constraints
-5. **Related Files** — Files to create or modify
-6. **Out of Scope** — Explicit boundaries
+4. **Unknowns, Risks, and Assumptions (URA)** — Operational uncertainty management
+5. **Technical Considerations** — Architecture decisions, dependencies, constraints
+6. **Related Files** — Files to create or modify
+7. **Out of Scope** — Explicit boundaries
+
+## Required URA Subsections
+
+1. **Unknowns** — With discovery action, decision deadline, owner, status
+2. **Assumptions** — With confidence score, validation method/date, impact if false, owner, status
+3. **Risks** — If/Then statement, likelihood, impact, response, trigger, owner, status
+4. **URA Promotion Rules** — How risks become issues and what to do when assumptions fail
 
 ## Acceptance Criteria Standards
 
@@ -50,3 +58,11 @@ Every PRD MUST contain these sections in order:
 - `completed` — All acceptance criteria checked, implementation verified
 
 Only update status forward. Never move a completed PRD back to pending.
+
+## URA Standards
+
+- Unknown status values: `open | resolved | carried-over`
+- Assumption status values: `open | validated | invalidated`
+- Risk status values: `monitoring | mitigated | materialized`
+- Use explicit owners and dates; avoid "team" as owner unless unavoidable
+- High-impact unresolved risk requires explicit acceptance before phase close

@@ -13,9 +13,10 @@ This project follows the DIP protocol. You MUST follow these rules for every tas
 1. Read `AGENTS.md` in the project root to find the active milestone and phase
 2. Navigate to the active milestone directory in `docs/milestones/`
 3. Read `milestone.md` to understand the overall goal
-4. Read `implementation-phases.md` to identify the current phase and pending PRDs
-5. Read ALL PRDs in the active phase directory (`phases/phase-N/`)
-6. If previous phases have reports in `reports/`, read them for context
+4. Read milestone URA baseline (Unknowns, Risks, Assumptions), including escalation thresholds
+5. Read `implementation-phases.md` to identify the current phase, pending PRDs, and URA snapshot
+6. Read ALL PRDs in the active phase directory (`phases/phase-N/`), including each PRD URA section
+7. If previous phases have reports in `reports/`, read them for context and unresolved URA carry-over
 
 ## During Implementation
 
@@ -24,6 +25,9 @@ This project follows the DIP protocol. You MUST follow these rules for every tas
 - Follow the acceptance criteria in the PRD as your definition of done
 - Check off acceptance criteria checkboxes as you complete them
 - Do not modify the PRD's Description, NFRs, or Out of Scope sections
+- Keep URA entries current in the PRD and phase tracking
+- Use explicit If/Then risk statements and assign owner + decision date
+- If a critical assumption is invalidated, stop and request re-planning
 - Stay within the boundaries defined by "Out of Scope"
 
 ## After Completing a PRD
@@ -31,6 +35,8 @@ This project follows the DIP protocol. You MUST follow these rules for every tas
 1. Verify ALL acceptance criteria checkboxes are checked
 2. Update the PRD frontmatter status to `completed`
 3. Update the PRD's entry in `implementation-phases.md` to `completed`
+4. Update PRD URA statuses (resolved/validated/mitigated/materialized)
+5. Promote materialized risks to issues in phase tracking/report context
 
 ## After Completing a Phase
 
@@ -39,7 +45,8 @@ When ALL PRDs in the current phase have status `completed`:
 1. Generate a phase report at `reports/report-phase-N.md` using the report template
 2. Update the phase status in `implementation-phases.md` to `completed`
 3. Update `AGENTS.md` to point to the next phase
-4. Do NOT start the next phase until the report is written
+4. Confirm URA exit gate is satisfied or explicit risk acceptance is documented
+5. Do NOT start the next phase until the report is written
 
 ## Protocol Flow
 

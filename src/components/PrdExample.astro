@@ -28,6 +28,22 @@ and maintain sessions across page refreshes.
 - Rate limiting: max 5 failed attempts per minute
 - HTTPS required for all auth endpoints
 
+## Unknowns, Risks, and Assumptions (URA)
+### Unknowns
+| Unknown | Why It Matters | Discovery Action | Decision Deadline | Owner | Status |
+|---------|----------------|------------------|-------------------|-------|--------|
+| Peak auth load profile | Affects session architecture | Run load test with synthetic traffic | 2026-03-12 | Backend Lead | open |
+
+### Assumptions
+| Assumption | Confidence (1-5) | Validation Method | Validation Date | Impact If False | Owner | Status |
+|------------|------------------|-------------------|-----------------|-----------------|-------|--------|
+| Redis cache can sustain p95 < 30ms | 3 | Benchmark in staging | 2026-03-14 | Platform Engineer | open |
+
+### Risks
+| Risk Statement (If..., then...) | Likelihood (1-5) | Impact (1-5) | Response | Trigger | Owner | Status |
+|---------------------------------|------------------|--------------|----------|---------|-------|--------|
+| If auth DB latency spikes, then login completion may drop | 3 | 4 | reduce | p95 DB latency > 150ms for 10m | Backend Lead | monitoring |
+
 ## Technical Considerations
 - Use JWT tokens stored in httpOnly cookies
 - Refresh token rotation for extended sessions
@@ -52,7 +68,7 @@ and maintain sessions across page refreshes.
     <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
       Each PRD is a self-contained unit of work — like a detailed Jira card in markdown.
       It contains everything a coding agent needs to implement that specific piece:
-      acceptance criteria, non-functional requirements, technical context, and clear boundaries.
+      acceptance criteria, non-functional requirements, URA, technical context, and clear boundaries.
     </p>
 
     <div class="mt-12 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">

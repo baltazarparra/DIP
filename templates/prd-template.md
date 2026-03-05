@@ -15,6 +15,7 @@ milestone: milestone-1
      - Update status to "in-progress" when you begin working on this PRD
      - Update status to "completed" when ALL acceptance criteria checkboxes are checked
      - Do not modify the Description, NFRs, or Out of Scope sections during implementation
+     - Keep URA entries current while implementing
      - If you discover new requirements, note them in Technical Considerations
      - If acceptance criteria cannot be met, explain why and request human review
 
@@ -74,6 +75,46 @@ milestone: milestone-1
 
 - Requirement 1
 - Requirement 2
+
+## Unknowns, Risks, and Assumptions (URA)
+
+<!-- This section is mandatory. Keep it concise and actionable.
+     Use real owners and decision dates. -->
+
+### Unknowns
+
+<!-- Unknowns are open questions that need evidence before committing.
+     Status: open | resolved | carried-over -->
+
+| Unknown | Why It Matters | Discovery Action | Decision Deadline | Owner | Status |
+|---------|----------------|------------------|-------------------|-------|--------|
+| Unknown 1 | Could change architecture/scope | Time-boxed spike | YYYY-MM-DD | Name/Role | open |
+
+### Assumptions
+
+<!-- Assumptions are beliefs currently treated as true.
+     Status: open | validated | invalidated -->
+
+| Assumption | Confidence (1-5) | Validation Method | Validation Date | Impact If False | Owner | Status |
+|------------|------------------|-------------------|-----------------|-----------------|-------|--------|
+| Assumption 1 | 3 | Prototype/test/data analysis | YYYY-MM-DD | Re-plan architecture/timeline | Name/Role | open |
+
+### Risks
+
+<!-- Risks are potential events that may impact outcomes.
+     Use If/Then statements for clarity.
+     Response values: avoid | reduce | transfer | accept
+     Status: monitoring | mitigated | materialized -->
+
+| Risk Statement (If..., then...) | Likelihood (1-5) | Impact (1-5) | Response | Trigger | Owner | Status |
+|---------------------------------|------------------|--------------|----------|---------|-------|--------|
+| If [condition], then [consequence] | 3 | 4 | reduce | Trigger signal | Name/Role | monitoring |
+
+### URA Promotion Rules
+
+- If a risk materializes, record it as an issue in phase tracking and the phase report
+- If a critical assumption is invalidated, stop and re-plan before continuing
+- If an unknown cannot be resolved in this phase, mark as carried-over with explicit owner/date
 
 ## Technical Considerations
 

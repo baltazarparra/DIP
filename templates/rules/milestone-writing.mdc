@@ -26,7 +26,15 @@ created: YYYY-MM-DD
 3. **Success Criteria** — Measurable outcomes with checkboxes
 4. **Scope** — Explicitly divided into "In Scope" and "Out of Scope"
 5. **Constraints** — Technical, business, or timeline constraints
-6. **Stakeholders** — Table with roles, names, and responsibilities
+6. **Unknowns, Risks, and Assumptions (URA)** — Milestone baseline for uncertainty management
+7. **Stakeholders** — Table with roles, names, and responsibilities
+
+## Required URA Subsections
+
+1. **Risk Appetite and Escalation Thresholds** — Explicit rules for acceptable risk
+2. **Critical Assumptions** — With confidence score, validation plan, date, owner
+3. **Priority Unknowns** — With discovery action, decision deadline, owner
+4. **Top Milestone Risks** — If/Then statements with likelihood, impact, response, trigger, owner
 
 ## Writing Guidelines
 
@@ -34,9 +42,12 @@ created: YYYY-MM-DD
 - Success criteria must be measurable (include numbers where possible)
 - "Out of Scope" is critical — it prevents scope creep during implementation
 - Constraints should include any hard dependencies or deadlines
+- URA entries must include owners and dates; avoid generic placeholders in real documents
+- Keep URA concise: focus on high-leverage items, not exhaustive lists
 
 ## Important
 
 - This document is the source of truth for the milestone's scope
+- This document is also the source of truth for milestone-level URA boundaries
 - Do not modify it during implementation unless explicitly asked by a stakeholder
 - All PRDs should align with the goals defined here

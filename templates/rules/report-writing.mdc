@@ -29,7 +29,14 @@ completed: YYYY-MM-DD
 2. **PRDs Completed** — Table listing all completed PRDs with file paths and notes
 3. **Deviations from Plan** — Honest account of any changes from original PRDs
 4. **Technical Debt Introduced** — Shortcuts, temporary solutions, known issues
-5. **Context for Next Phase** — Architecture decisions, patterns to follow, entry points, gotchas
+5. **URA Outcomes (Unknowns, Risks, Assumptions)** — What changed and what carries forward
+6. **Context for Next Phase** — Architecture decisions, patterns to follow, entry points, gotchas
+
+## Required URA Subsections
+
+1. **Assumptions Validated or Invalidated** — Include evidence and plan impact
+2. **Risks Materialized as Issues** — Include response and current status
+3. **Unknowns Carried Forward** — Include next action, target phase, owner
 
 ## Critical: Context for Next Phase
 
@@ -41,3 +48,4 @@ Include:
 - Patterns that should be followed or avoided
 - Configuration or environment requirements
 - Any dependencies between this phase and the next
+- Highest remaining URA items and escalation triggers

@@ -14,6 +14,7 @@ completed: YYYY-MM-DD
      - Generate this report only after all PRDs in the phase have status "completed"
      - Reference specific PRDs by their file paths
      - Be honest about deviations — they inform the next phase's planning
+     - Include URA outcomes so uncertainty does not reset between phases
      - The "Context for Next Phase" section is the most important for continuity
 -->
 
@@ -64,6 +65,30 @@ completed: YYYY-MM-DD
 
 - None / List technical debt here
 
+## URA Outcomes (Unknowns, Risks, Assumptions)
+
+<!-- Document how uncertainty evolved during the phase.
+     This section prevents repeating the same mistakes in later phases. -->
+
+### Assumptions Validated or Invalidated
+
+| Assumption | Result (validated/invalidated) | Evidence | Impact on Plan | Owner |
+|------------|--------------------------------|----------|----------------|-------|
+| Assumption 1 | validated | Link/test/result | No change required | Name/Role |
+| Assumption 2 | invalidated | Link/test/result | Scope/timeline adjusted | Name/Role |
+
+### Risks Materialized as Issues
+
+| Risk | Issue Created | Impact | Response Taken | Current Status |
+|------|---------------|--------|----------------|----------------|
+| If [condition], then [consequence] | issue-001 | High | Mitigation or rollback | open/closed |
+
+### Unknowns Carried Forward
+
+| Unknown | Why It Remains Open | Next Action | Target Phase | Owner |
+|---------|----------------------|-------------|--------------|-------|
+| Unknown 1 | Needs dependency not yet available | Scheduled spike | phase-2 | Name/Role |
+
 ## Context for Next Phase
 
 <!-- THIS IS THE MOST IMPORTANT SECTION.
@@ -80,4 +105,5 @@ completed: YYYY-MM-DD
      - Database connection pool is configured for 20 connections max
      - The user model is at src/db/schema/users.ts — extend it rather than
        creating separate tables for user-related data
+     - Highest remaining risks and invalidated assumptions to watch first
 -->

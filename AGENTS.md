@@ -8,6 +8,7 @@ This project is the **DIP — Deep Implementation Protocol** repository, which c
 ## Project Overview
 
 DIP is a structured, document-driven protocol for agentic software development. It organizes complex projects into milestones, phases, and PRDs (Product Requirements Documents), giving AI coding agents the context they need to implement features reliably.
+DIP also requires explicit management of URA (Unknowns, Risks, Assumptions) across milestone, phase, PRD, and report documents.
 
 This repository itself follows the DIP protocol.
 
@@ -21,6 +22,7 @@ Before starting any work, always:
 2. Read `implementation-phases.md` to identify the current phase
 3. Read all PRDs in the active phase's directory
 4. Check reports from previous phases for context
+5. Review active URA items (Unknowns, Risks, Assumptions)
 
 ## Setup Commands
 
@@ -74,6 +76,7 @@ This project follows the DIP protocol. When working on implementation:
 
 - Never skip reading the active phase's PRDs before starting work
 - Mark PRD status as `in-progress` when you begin and `completed` when done
+- Keep URA entries current and escalate invalidated critical assumptions
 - After completing all PRDs in a phase, generate a phase report before moving to the next phase
 - Update `implementation-phases.md` to reflect phase completion status
 - Do not modify documents from completed phases unless explicitly asked

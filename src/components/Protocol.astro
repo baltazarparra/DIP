@@ -8,27 +8,27 @@ const steps = [
   {
     number: '02',
     title: 'Milestone Document',
-    description: 'The team produces a milestone.md — a comprehensive definition of the epic, including goals, scope, success criteria, and constraints.',
+    description: 'The team produces a milestone.md — a comprehensive definition of the epic, including goals, scope, success criteria, constraints, and a URA baseline (Unknowns, Risks, Assumptions).',
   },
   {
     number: '03',
     title: 'Implementation Phases',
-    description: 'The development team breaks the milestone into coherent phases in implementation-phases.md. Each phase is a logical grouping of work that can be completed and validated independently.',
+    description: 'The development team breaks the milestone into coherent phases in implementation-phases.md. Each phase is a logical grouping of work that can be completed and validated independently, with a URA snapshot and exit gate.',
   },
   {
     number: '04',
     title: 'PRDs',
-    description: 'Each phase is broken down into individual PRDs — self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs: description, acceptance criteria, non-functional requirements, and technical context.',
+    description: 'Each phase is broken down into individual PRDs — self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs: description, acceptance criteria, non-functional requirements, URA, and technical context.',
   },
   {
     number: '05',
     title: 'Implementation',
-    description: 'The agent picks up PRDs from the active phase and implements them one by one, marking each as completed when all acceptance criteria are met.',
+    description: 'The agent picks up PRDs from the active phase and implements them one by one, validating assumptions, reducing unknowns, and reacting to risk triggers while meeting acceptance criteria.',
   },
   {
     number: '06',
     title: 'Phase Report',
-    description: 'When all PRDs in a phase are completed, a report is generated summarizing what was built, deviations from the plan, and context needed for the next phase.',
+    description: 'When all PRDs in a phase are completed, a report is generated summarizing what was built, deviations from the plan, URA outcomes, and context needed for the next phase.',
   },
   {
     number: '07',
@@ -67,7 +67,7 @@ const folderStructure = `project/
       The Protocol
     </h2>
     <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
-      Seven steps that transform a product vision into structured, agent-executable units of work.
+      Seven steps that transform a product vision into structured, agent-executable units of work while keeping uncertainty explicit.
     </p>
 
     <ol class="mt-10 sm:mt-16 space-y-6 sm:space-y-8">

@@ -3,7 +3,7 @@
 A structured, document-driven protocol for agentic software development,
 designed for medium-to-high complexity projects.
 
-DIP bridges the gap between product vision and AI-assisted implementation by organizing work into **milestones**, **phases**, and **PRDs** — giving coding agents the context they need to build with precision.
+DIP bridges the gap between product vision and AI-assisted implementation by organizing work into **milestones**, **phases**, and **PRDs** while making **unknowns, risks, and assumptions** explicit — giving coding agents the context they need to build with precision.
 
 [View Landing Page](https://baltazarparra.github.io/DIP) · [Get Started](#getting-started) · [Templates](./templates)
 
@@ -21,6 +21,7 @@ AI coding agents are powerful, but they struggle without structure. Throwing an 
 - Large features get implemented inconsistently
 - There's no structured handoff between planning and execution
 - Phase transitions lose context without documentation
+- Hidden assumptions and unresolved unknowns become late surprises
 
 ### The Solution
 
@@ -31,6 +32,7 @@ Refinement → Milestone → Phases → PRDs → Implementation → Report → N
 ```
 
 Each step produces a document that feeds into the next, creating a chain of context that keeps both humans and agents aligned.
+At every step, DIP tracks **URA** (`Unknowns, Risks, Assumptions`) to reduce avoidable surprises.
 
 ---
 
@@ -42,27 +44,27 @@ The entire team (Design, Product, Business, Technology) defines a milestone/epic
 
 ### 2. Milestone Document
 
-The team produces a `milestone.md` — a comprehensive definition of the epic, including goals, scope, success criteria, and constraints.
+The team produces a `milestone.md` — a comprehensive definition of the epic, including goals, scope, success criteria, constraints, and a milestone-level URA baseline.
 
 ### 3. Implementation Phases
 
-The development team breaks the milestone into coherent phases in `implementation-phases.md`. Each phase is a logical grouping of work that can be completed and validated independently.
+The development team breaks the milestone into coherent phases in `implementation-phases.md`. Each phase is a logical grouping of work that can be completed and validated independently, with URA snapshots and exit gates.
 
 ### 4. PRDs (Product Requirements Documents)
 
-Each phase is broken down into individual PRDs — self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs to implement that specific piece: description, acceptance criteria, non-functional requirements, and technical considerations.
+Each phase is broken down into individual PRDs — self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs to implement that specific piece: description, acceptance criteria, non-functional requirements, URA, and technical considerations.
 
 ### 5. Implementation
 
-The agent (or developer) picks up PRDs from the active phase and implements them one by one, marking each as completed.
+The agent (or developer) picks up PRDs from the active phase and implements them one by one, marking each as completed while validating assumptions, reducing unknowns, and monitoring risk triggers.
 
 ### 6. Phase Report
 
-When all PRDs in a phase are completed, a `report-phase-N.md` is generated summarizing what was built, any deviations from the plan, and context needed for the next phase.
+When all PRDs in a phase are completed, a `report-phase-N.md` is generated summarizing what was built, deviations from the plan, URA outcomes, and context needed for the next phase.
 
 ### 7. Loop
 
-The cycle repeats for each phase until the milestone is complete.
+The cycle repeats for each phase until the milestone is complete, carrying forward unresolved URA items with explicit ownership.
 
 ---
 
@@ -102,8 +104,20 @@ DIP integrates with AI coding agent artifacts to create a complete workflow:
 | Artifact | Role | Purpose |
 |----------|------|---------|
 | **AGENTS.md** | The Map | Entry point for agents — points to the active milestone and phase |
-| **Cursor Rules** | The Guardrails | Automatic contextual guidance for document formatting and protocol compliance |
+| **Cursor Rules** | The Guardrails | Automatic contextual guidance for document formatting, protocol compliance, and URA discipline |
 | **Skills** | The Tools | Repeatable actions for scaffolding milestones, phases, and reports |
+
+---
+
+## Managing Unknowns, Risks, and Assumptions (URA)
+
+DIP uses a lightweight URA model to make uncertainty explicit and actionable:
+
+- **Unknowns**: open questions that require discovery before commitment
+- **Assumptions**: beliefs currently treated as true and needing validation
+- **Risks**: potential events that can impact outcomes (tracked with `If..., then...` statements)
+
+When a risk materializes, it becomes an issue and is reported. When a critical assumption fails, the team re-plans before continuing.
 
 ---
 
@@ -135,6 +149,16 @@ Brief description of what needs to be built.
 - Response time < 200ms for auth endpoints
 - Passwords hashed with bcrypt (min 12 rounds)
 
+## Unknowns, Risks, and Assumptions (URA)
+### Unknowns
+- What is the expected peak auth traffic profile?
+
+### Assumptions
+- Session storage choice can support projected load
+
+### Risks
+- If session storage latency spikes, then login conversion may drop
+
 ## Technical Considerations
 Architecture decisions, constraints, dependencies.
 
@@ -159,7 +183,7 @@ mkdir -p docs/milestones/milestone-1/{phases/phase-1,reports}
 
 ### 2. Copy the templates
 
-Download the [templates](./templates) and place them in your project. Each template includes formatting guidelines and example content.
+Download the [templates](./templates) and place them in your project. Each template includes formatting guidelines, URA structure, and example content.
 
 ### 3. Configure your AGENTS.md
 
@@ -171,7 +195,7 @@ If you use Cursor, add the [DIP rules](./templates/rules/) to `.cursor/rules/` f
 
 ### 5. Run a refinement meeting
 
-Gather your team, define a milestone, and start the loop.
+Gather your team, define a milestone, set the initial URA baseline, and start the loop.
 
 ---
 
