@@ -8,9 +8,15 @@
   html {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-zinc-950 text-zinc-300 antialiased;
+    overflow-x: hidden;
+  }
+
+  pre {
+    @apply max-w-full;
   }
 }

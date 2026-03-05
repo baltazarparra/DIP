@@ -36,7 +36,7 @@ const steps = [
 ---
 
 <section aria-label="Getting Started" id="getting-started" class="border-b border-zinc-800/50">
-  <div class="max-w-5xl mx-auto px-6 py-24 sm:py-32">
+  <div class="max-w-5xl mx-auto px-6 py-16 sm:py-32">
     <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
       Getting Started
     </h2>
@@ -47,16 +47,16 @@ const steps = [
 
     <ol class="mt-16 space-y-12">
       {steps.map((step) => (
-        <li class="flex gap-6 items-start">
-          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 font-mono text-sm font-bold">
+        <li class="flex gap-4 sm:gap-6 items-start">
+          <span class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 font-mono text-xs sm:text-sm font-bold">
             {step.number}
           </span>
-          <div class="flex-1 pt-0.5">
+          <div class="flex-1 pt-0 sm:pt-0.5 min-w-0">
             <h3 class="text-lg font-semibold text-white">{step.title}</h3>
             <p class="mt-1.5 text-zinc-400 leading-relaxed">{step.description}</p>
             {step.code && (
               <div class="mt-4 rounded-lg border border-zinc-800 bg-zinc-900/50 overflow-hidden">
-                <pre class="px-4 py-3 overflow-x-auto"><code class="text-sm text-cyan-400 font-mono">{step.code}</code></pre>
+                <pre class="px-3 sm:px-4 py-3 overflow-x-auto"><code class="text-xs sm:text-sm text-cyan-400 font-mono">{step.code}</code></pre>
               </div>
             )}
           </div>
@@ -64,7 +64,7 @@ const steps = [
       ))}
     </ol>
 
-    <div class="mt-16 rounded-xl border border-zinc-800 bg-zinc-900/30 p-8 text-center">
+    <div class="mt-12 sm:mt-16 rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 sm:p-8 text-center">
       <p class="text-zinc-400">
         All templates, rules, and examples are available in the repository.
       </p>
