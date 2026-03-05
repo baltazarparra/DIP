@@ -1,0 +1,59 @@
+---
+const artifacts = [
+  {
+    name: 'AGENTS.md',
+    role: 'The Map',
+    description: 'Entry point for AI coding agents. Points to the active milestone and current phase. Agents read this first to understand where the project is and what to work on next.',
+    icon: '&#9881;',
+    color: 'cyan',
+  },
+  {
+    name: 'Cursor Rules',
+    role: 'The Guardrails',
+    description: 'Automatic contextual guidance activated by file patterns. Rules enforce PRD format, report structure, and protocol compliance without the agent needing to be reminded.',
+    icon: '&#9670;',
+    color: 'amber',
+  },
+  {
+    name: 'Skills',
+    role: 'The Tools',
+    description: 'Repeatable actions for scaffolding milestones, creating phase structures, and generating reports. Skills automate the mechanical parts of the protocol.',
+    icon: '&#9889;',
+    color: 'emerald',
+  },
+]
+
+const colorMap: Record<string, { border: string; bg: string; text: string; iconBg: string }> = {
+  cyan: { border: 'border-cyan-500/20', bg: 'bg-cyan-500/5', text: 'text-cyan-400', iconBg: 'bg-cyan-500/10' },
+  amber: { border: 'border-amber-500/20', bg: 'bg-amber-500/5', text: 'text-amber-400', iconBg: 'bg-amber-500/10' },
+  emerald: { border: 'border-emerald-500/20', bg: 'bg-emerald-500/5', text: 'text-emerald-400', iconBg: 'bg-emerald-500/10' },
+}
+---
+
+<section aria-label="Agent Artifacts" class="border-b border-zinc-800/50">
+  <div class="max-w-5xl mx-auto px-6 py-24 sm:py-32">
+    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+      Agent Artifacts
+    </h2>
+    <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
+      DIP integrates with AI coding agent artifacts to create a complete workflow.
+      Three layers that complement each other without overlap.
+    </p>
+
+    <div class="mt-16 grid sm:grid-cols-3 gap-6">
+      {artifacts.map((artifact) => {
+        const colors = colorMap[artifact.color]
+        return (
+          <article class={`rounded-xl border ${colors.border} ${colors.bg} p-6`}>
+            <div class={`w-10 h-10 rounded-lg ${colors.iconBg} flex items-center justify-center ${colors.text} text-lg mb-4`}>
+              <span aria-hidden="true" set:html={artifact.icon} />
+            </div>
+            <h3 class="text-lg font-semibold text-white">{artifact.name}</h3>
+            <p class={`text-sm font-medium ${colors.text} mt-1`}>{artifact.role}</p>
+            <p class="mt-3 text-sm text-zinc-400 leading-relaxed">{artifact.description}</p>
+          </article>
+        )
+      })}
+    </div>
+  </div>
+</section>

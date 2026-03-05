@@ -1,0 +1,84 @@
+---
+const repoUrl = 'https://github.com/baltz/DIP'
+
+const steps = [
+  {
+    number: '1',
+    title: 'Add the DIP structure',
+    description: 'Create the folder structure in your project to house milestones, phases, and reports.',
+    code: 'mkdir -p docs/milestones/milestone-1/{phases/phase-1,reports}',
+  },
+  {
+    number: '2',
+    title: 'Copy the templates',
+    description: 'Download the DIP templates and place them in your project. Each template includes formatting guidelines and inline instructions for AI agents.',
+    code: null,
+  },
+  {
+    number: '3',
+    title: 'Configure your AGENTS.md',
+    description: 'Add an AGENTS.md to your project root that declares the project follows DIP, points to the active milestone, and identifies the current phase.',
+    code: null,
+  },
+  {
+    number: '4',
+    title: 'Add Cursor Rules',
+    description: 'Copy the DIP rules to .cursor/rules/ for automatic guidance when writing protocol documents. Rules enforce PRD format, report structure, and protocol compliance.',
+    code: 'cp templates/rules/*.mdc .cursor/rules/',
+  },
+  {
+    number: '5',
+    title: 'Run a refinement meeting',
+    description: 'Gather your team — Design, Product, Business, Technology. Define a milestone together, write the milestone.md, break it into phases, and start the loop.',
+    code: null,
+  },
+]
+---
+
+<section aria-label="Getting Started" id="getting-started" class="border-b border-zinc-800/50">
+  <div class="max-w-5xl mx-auto px-6 py-24 sm:py-32">
+    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+      Getting Started
+    </h2>
+    <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
+      Adopt DIP in your project in five steps. The protocol works with any tech stack
+      and any AI coding agent.
+    </p>
+
+    <ol class="mt-16 space-y-12">
+      {steps.map((step) => (
+        <li class="flex gap-6 items-start">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 font-mono text-sm font-bold">
+            {step.number}
+          </span>
+          <div class="flex-1 pt-0.5">
+            <h3 class="text-lg font-semibold text-white">{step.title}</h3>
+            <p class="mt-1.5 text-zinc-400 leading-relaxed">{step.description}</p>
+            {step.code && (
+              <div class="mt-4 rounded-lg border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+                <pre class="px-4 py-3 overflow-x-auto"><code class="text-sm text-cyan-400 font-mono">{step.code}</code></pre>
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-16 rounded-xl border border-zinc-800 bg-zinc-900/30 p-8 text-center">
+      <p class="text-zinc-400">
+        All templates, rules, and examples are available in the repository.
+      </p>
+      <a
+        href={repoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 mt-4 px-6 py-3 text-sm font-semibold text-zinc-950 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors"
+      >
+        View Templates on GitHub
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

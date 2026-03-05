@@ -1,0 +1,43 @@
+---
+description: Enforces phase report format and ensures complete documentation of phase outcomes
+globs:
+  - docs/milestones/**/reports/**/*.md
+alwaysApply: false
+---
+
+# Phase Report Writing Standards
+
+You are writing a phase completion report that follows the DIP protocol.
+
+## When to Write a Report
+
+Only generate a report when ALL PRDs in the phase have status `completed` in `implementation-phases.md`. Never write a report for an incomplete phase.
+
+## Required Frontmatter
+
+```yaml
+---
+phase: phase-N
+milestone: milestone-N
+completed: YYYY-MM-DD
+---
+```
+
+## Required Sections
+
+1. **Summary** — 2-3 paragraphs covering what was accomplished and whether the phase goal was met
+2. **PRDs Completed** — Table listing all completed PRDs with file paths and notes
+3. **Deviations from Plan** — Honest account of any changes from original PRDs
+4. **Technical Debt Introduced** — Shortcuts, temporary solutions, known issues
+5. **Context for Next Phase** — Architecture decisions, patterns to follow, entry points, gotchas
+
+## Critical: Context for Next Phase
+
+This section is the most important. It will be read by the agent starting the next phase.
+Include:
+
+- Key architecture decisions made during this phase
+- File paths to important entry points
+- Patterns that should be followed or avoided
+- Configuration or environment requirements
+- Any dependencies between this phase and the next

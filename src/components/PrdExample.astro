@@ -1,0 +1,68 @@
+---
+const prdContent = `---
+title: User Authentication Flow
+status: pending
+priority: high
+complexity: medium
+phase: phase-1
+milestone: milestone-1
+---
+
+# User Authentication Flow
+
+## Description
+Implement email/password authentication with session
+management. Users should be able to sign up, log in,
+and maintain sessions across page refreshes.
+
+## Acceptance Criteria
+- [ ] User can sign up with email and password
+- [ ] User can log in with existing credentials
+- [ ] Session persists across page refreshes
+- [ ] Error messages displayed for invalid inputs
+- [ ] Password reset flow via email
+
+## Non-Functional Requirements
+- Response time < 200ms for auth endpoints
+- Passwords hashed with bcrypt (min 12 rounds)
+- Rate limiting: max 5 failed attempts per minute
+- HTTPS required for all auth endpoints
+
+## Technical Considerations
+- Use JWT tokens stored in httpOnly cookies
+- Refresh token rotation for extended sessions
+- Consider OAuth2 integration in a future PRD
+
+## Related Files
+- src/auth/handlers.ts
+- src/middleware/auth.ts
+- src/db/schema/users.ts
+
+## Out of Scope
+- Social login (Google, GitHub) — separate PRD
+- Two-factor authentication — separate PRD
+- Admin role management — phase-2`
+---
+
+<section aria-label="PRD Example" class="border-b border-zinc-800/50">
+  <div class="max-w-5xl mx-auto px-6 py-24 sm:py-32">
+    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+      What a PRD looks like
+    </h2>
+    <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
+      Each PRD is a self-contained unit of work — like a detailed Jira card in markdown.
+      It contains everything a coding agent needs to implement that specific piece:
+      acceptance criteria, non-functional requirements, technical context, and clear boundaries.
+    </p>
+
+    <div class="mt-12 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 bg-zinc-900">
+        <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
+        <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
+        <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
+        <span class="ml-2 text-xs text-zinc-500 font-mono">prd-user-auth.md</span>
+      </div>
+      <pre class="p-6 overflow-x-auto max-h-[600px]"><code class="text-sm text-zinc-300 font-mono leading-relaxed">{prdContent}</code></pre>
+    </div>
+  </div>
+</section>

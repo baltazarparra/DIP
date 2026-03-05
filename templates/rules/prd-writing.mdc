@@ -1,0 +1,52 @@
+---
+description: Enforces PRD format and quality standards when writing or editing PRDs
+globs:
+  - docs/milestones/**/phases/**/*.md
+alwaysApply: false
+---
+
+# PRD Writing Standards
+
+You are editing a PRD (Product Requirements Document) that follows the DIP protocol.
+
+## Required Frontmatter
+
+Every PRD MUST have this frontmatter:
+
+```yaml
+---
+title: "Descriptive title of what will be built"
+status: pending | in-progress | completed
+priority: critical | high | medium | low
+complexity: simple | medium | complex
+phase: phase-N
+milestone: milestone-N
+---
+```
+
+## Required Sections
+
+Every PRD MUST contain these sections in order:
+
+1. **Description** — What needs to be built, with enough detail for implementation
+2. **Acceptance Criteria** — Testable checkboxes defining "done"
+3. **Non-Functional Requirements** — Performance, security, accessibility targets
+4. **Technical Considerations** — Architecture decisions, dependencies, constraints
+5. **Related Files** — Files to create or modify
+6. **Out of Scope** — Explicit boundaries
+
+## Acceptance Criteria Standards
+
+- Each criterion must be independently testable
+- Use checkbox format: `- [ ] criterion`
+- Be specific: "User can sign up with email and password" not "Auth works"
+- Include edge cases: error states, validation, boundary conditions
+- Include numbers where applicable: "Response time < 200ms"
+
+## Status Lifecycle
+
+- `pending` — Not yet started
+- `in-progress` — Currently being implemented
+- `completed` — All acceptance criteria checked, implementation verified
+
+Only update status forward. Never move a completed PRD back to pending.

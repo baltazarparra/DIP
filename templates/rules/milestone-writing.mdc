@@ -1,0 +1,42 @@
+---
+description: Enforces milestone document format for DIP protocol milestone definitions
+globs:
+  - docs/milestones/**/milestone.md
+alwaysApply: false
+---
+
+# Milestone Document Standards
+
+You are editing a milestone document that follows the DIP protocol.
+
+## Required Frontmatter
+
+```yaml
+---
+title: "Milestone Title"
+status: active | completed
+created: YYYY-MM-DD
+---
+```
+
+## Required Sections
+
+1. **Overview** — 2-4 paragraphs on business context, user need, and technical opportunity
+2. **Goals** — Specific, measurable goals (not vague aspirations)
+3. **Success Criteria** — Measurable outcomes with checkboxes
+4. **Scope** — Explicitly divided into "In Scope" and "Out of Scope"
+5. **Constraints** — Technical, business, or timeline constraints
+6. **Stakeholders** — Table with roles, names, and responsibilities
+
+## Writing Guidelines
+
+- Goals should be concrete and verifiable, not abstract
+- Success criteria must be measurable (include numbers where possible)
+- "Out of Scope" is critical — it prevents scope creep during implementation
+- Constraints should include any hard dependencies or deadlines
+
+## Important
+
+- This document is the source of truth for the milestone's scope
+- Do not modify it during implementation unless explicitly asked by a stakeholder
+- All PRDs should align with the goals defined here
