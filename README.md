@@ -5,7 +5,7 @@ designed for medium-to-high complexity projects.
 
 DIP bridges the gap between product vision and AI-assisted implementation by organizing work into **milestones**, **phases**, and **PRDs** — giving coding agents the context they need to build with precision.
 
-[View Landing Page](https://baltz.github.io/DIP) · [Get Started](#getting-started) · [Templates](./templates)
+[View Landing Page](https://baltazarparra.github.io/DIP) · [Get Started](#getting-started) · [Templates](./templates)
 
 ---
 
