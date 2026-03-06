@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { createDiamond } from './diamond'
 import { diamondState } from './choreography'
+import { initDiamondInteraction } from './interaction'
 
 export interface D20Scene {
   renderer: THREE.WebGLRenderer
@@ -43,6 +44,7 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
 
   const diamond = createDiamond(envMap)
   scene.add(diamond)
+  const interaction = initDiamondInteraction({ camera, diamond })
 
   const keyLight = new THREE.DirectionalLight(0xffffff, 2.0)
   keyLight.position.set(3, 4, 5)
@@ -110,11 +112,12 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
 
     currentRotX = lerp(currentRotX, targetRotX, lerpFactor)
     currentRotY = lerp(currentRotY, targetRotY, lerpFactor)
+    const interactionFrame = interaction.tick()
 
-    diamond.position.x = currentX
-    diamond.position.y = currentY
-    diamond.rotation.x = currentRotX
-    diamond.rotation.y = currentRotY
+    diamond.position.x = currentX + interactionFrame.x
+    diamond.position.y = currentY + interactionFrame.y
+    diamond.rotation.x = currentRotX + interactionFrame.rotX
+    diamond.rotation.y = currentRotY + interactionFrame.rotY
     diamond.scale.setScalar(currentScale)
 
     const mat = diamond.material as THREE.MeshPhysicalMaterial
@@ -128,6 +131,7 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
   const dispose = () => {
     cancelAnimationFrame(animationId)
     window.removeEventListener('resize', handleResize)
+    interaction.dispose()
     renderer.dispose()
   }
 
