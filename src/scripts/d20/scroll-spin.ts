@@ -12,9 +12,11 @@ export interface ScrollSpinBoost {
 
 const ACTIVE_WINDOW_MS = 140
 const MIN_SCROLL_VELOCITY = 0.015
-const VELOCITY_TO_BOOST = 0.03
-const MAX_BOOST_SPEED = 2.4
-const ATTACK_LERP = 0.28
+const VELOCITY_TO_BOOST = 0.055
+const BASE_MAX_BOOST_SPEED = 2.6
+const DOWN_SCROLL_GAIN = 1.35
+const UP_SCROLL_GAIN = 1.0
+const ATTACK_LERP = 0.24
 const RELEASE_LERP = 0.08
 
 function lerp(current: number, target: number, factor: number): number {
@@ -32,14 +34,27 @@ export function initScrollSpinBoost(): ScrollSpinBoost {
   let lastScrollAt = 0
 
   const updateFromVelocity = (velocity: number): void => {
-    const magnitude = Math.abs(velocity)
-    if (magnitude < MIN_SCROLL_VELOCITY) {
+    if (Math.abs(velocity) < MIN_SCROLL_VELOCITY) {
       return
     }
 
     lastScrollAt = performance.now()
-    const normalized = Math.tanh(magnitude * VELOCITY_TO_BOOST)
-    targetBoostSpeed = clamp(normalized * MAX_BOOST_SPEED, 0, MAX_BOOST_SPEED)
+    const signedBoost = Math.tanh(velocity * VELOCITY_TO_BOOST) * BASE_MAX_BOOST_SPEED
+
+    if (signedBoost >= 0) {
+      targetBoostSpeed = clamp(
+        signedBoost * DOWN_SCROLL_GAIN,
+        0,
+        BASE_MAX_BOOST_SPEED * DOWN_SCROLL_GAIN
+      )
+      return
+    }
+
+    targetBoostSpeed = clamp(
+      signedBoost * UP_SCROLL_GAIN,
+      -BASE_MAX_BOOST_SPEED * UP_SCROLL_GAIN,
+      0
+    )
   }
 
   const lenis = getLenis()
@@ -51,7 +66,7 @@ export function initScrollSpinBoost(): ScrollSpinBoost {
   const onNativeScroll = (): void => {
     const now = performance.now()
     const deltaTime = Math.max(now - lastNativeTime, 16)
-    const deltaY = Math.abs(window.scrollY - lastNativeY)
+    const deltaY = window.scrollY - lastNativeY
     const velocity = deltaY / deltaTime
 
     lastNativeY = window.scrollY
@@ -71,7 +86,12 @@ export function initScrollSpinBoost(): ScrollSpinBoost {
     const now = performance.now()
     const isActivelyScrolling = now - lastScrollAt <= ACTIVE_WINDOW_MS
     const nextTargetBoost = isActivelyScrolling ? targetBoostSpeed : 0
-    const lerpFactor = isActivelyScrolling ? ATTACK_LERP : RELEASE_LERP
+    const isDirectionFlip =
+      Math.sign(nextTargetBoost) !== 0 &&
+      Math.sign(nextTargetBoost) !== Math.sign(currentBoostSpeed)
+    const lerpFactor = isActivelyScrolling
+      ? (isDirectionFlip ? 0.38 : ATTACK_LERP)
+      : RELEASE_LERP
 
     currentBoostSpeed = lerp(currentBoostSpeed, nextTargetBoost, lerpFactor)
     accumulatedRotYOffset += currentBoostSpeed * deltaSeconds
