@@ -1,0 +1,17 @@
+<div id="d20-container" class="fixed inset-0 z-10 pointer-events-none" style="mix-blend-mode: screen;">
+  <canvas id="d20-canvas"></canvas>
+</div>
+
+<script>
+  import { initScroll } from '../scripts/d20/scroll'
+  import { initChoreography } from '../scripts/d20/choreography'
+  import { initScene } from '../scripts/d20/scene'
+
+  initScroll()
+
+  const canvas = document.getElementById('d20-canvas') as HTMLCanvasElement
+  if (canvas) {
+    initScene(canvas)
+    initChoreography()
+  }
+</script>

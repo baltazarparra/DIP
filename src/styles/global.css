@@ -7,8 +7,16 @@
 @layer base {
   html {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    scroll-behavior: smooth;
     overflow-x: hidden;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
   }
 
   body {
