@@ -3,6 +3,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { createDiamond } from './diamond'
 import { diamondState } from './choreography'
 import { initDiamondInteraction } from './interaction'
+import { initScrollSpinBoost } from './scroll-spin'
 
 export interface D20Scene {
   renderer: THREE.WebGLRenderer
@@ -45,6 +46,7 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
   const diamond = createDiamond(envMap)
   scene.add(diamond)
   const interaction = initDiamondInteraction({ camera, diamond })
+  const scrollSpinBoost = initScrollSpinBoost()
 
   const keyLight = new THREE.DirectionalLight(0xffffff, 2.0)
   keyLight.position.set(3, 4, 5)
@@ -94,7 +96,8 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
 
   const animate = () => {
     animationId = requestAnimationFrame(animate)
-    const elapsed = clock.getElapsedTime()
+    const delta = clock.getDelta()
+    const elapsed = clock.elapsedTime
 
     const scaleFactor = isMobile ? 0.7 : 1
     const envBase = isMobile ? 1.8 : 3.0
@@ -107,8 +110,9 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
 
     const idleRotY = elapsed * 0.3
     const idleRotX = Math.sin(elapsed * 0.2) * 0.1
+    const scrollSpinFrame = scrollSpinBoost.tick(delta)
     const targetRotX = idleRotX + diamondState.rotOffsetX
-    const targetRotY = idleRotY + diamondState.rotOffsetY
+    const targetRotY = idleRotY + diamondState.rotOffsetY + scrollSpinFrame.rotYOffset
 
     currentRotX = lerp(currentRotX, targetRotX, lerpFactor)
     currentRotY = lerp(currentRotY, targetRotY, lerpFactor)
@@ -132,6 +136,7 @@ export function initScene(canvas: HTMLCanvasElement): D20Scene {
     cancelAnimationFrame(animationId)
     window.removeEventListener('resize', handleResize)
     interaction.dispose()
+    scrollSpinBoost.dispose()
     renderer.dispose()
   }
 
