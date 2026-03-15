@@ -1,70 +1,55 @@
 ---
-const flowSteps = [
-  'Refinement',
-  'Milestone',
-  'Phases',
-  'PRDs',
-  'Implementation',
-  'Report',
-  'Loop',
-]
+interface Props {
+  content: {
+    title: string
+    intro: string
+    problem: { title: string; items: string[] }
+    solution: { title: string; body: string; flowSteps: string[] }
+  }
+}
+
+const { content } = Astro.props
+const flowSteps = content.solution.flowSteps
 ---
 
 <section aria-label="Why DIP" class="border-b border-zinc-800/50">
   <div class="max-w-5xl mx-auto px-6 py-16 sm:py-32">
     <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-      Why DIP?
+      {content.title}
     </h2>
     <p class="mt-4 text-base sm:text-lg text-zinc-400 max-w-3xl leading-relaxed">
-      AI coding agents are powerful, but they struggle without structure. Throwing an entire epic
-      at an agent produces inconsistent results. DIP solves this by breaking complex work into
-      well-scoped, document-driven units that agents can execute reliably.
+      {content.intro}
     </p>
 
     <div class="mt-10 sm:mt-16 grid sm:grid-cols-2 gap-6 sm:gap-8">
       <article class="rounded-xl border border-red-500/10 bg-red-500/[0.02] p-5 sm:p-6">
         <h3 class="text-lg sm:text-xl font-semibold text-white flex items-center gap-3">
           <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-red-500/10 text-red-400 text-sm font-bold flex-shrink-0" aria-hidden="true">!</span>
-          The Problem
+          {content.problem.title}
         </h3>
         <ul class="mt-4 space-y-3 text-sm sm:text-base text-zinc-400">
-          <li class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500/40 flex-shrink-0" aria-hidden="true"></span>
-            Agents lack context about the bigger picture
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500/40 flex-shrink-0" aria-hidden="true"></span>
-            Large features get implemented inconsistently
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500/40 flex-shrink-0" aria-hidden="true"></span>
-            No structured handoff between planning and execution
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500/40 flex-shrink-0" aria-hidden="true"></span>
-            Phase transitions lose context without documentation
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500/40 flex-shrink-0" aria-hidden="true"></span>
-            Hidden assumptions and unresolved unknowns become late surprises
-          </li>
+          {content.problem.items.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500/40 flex-shrink-0" aria-hidden="true"></span>
+              {item}
+            </li>
+          ))}
         </ul>
       </article>
 
       <article class="rounded-xl border border-cyan-500/10 bg-cyan-500/[0.02] p-5 sm:p-6">
         <h3 class="text-lg sm:text-xl font-semibold text-white flex items-center gap-3">
           <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 text-sm font-bold flex-shrink-0" aria-hidden="true">&#10003;</span>
-          The Solution
+          {content.solution.title}
         </h3>
         <p class="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
-          DIP provides a repeatable loop where each step produces a document that feeds into the next,
-          creating a chain of context that keeps both humans and agents aligned, including continuous URA tracking.
+          {content.solution.body}
         </p>
 
         <div class="mt-5 rounded-lg border border-zinc-800 bg-zinc-950/80 p-4">
           <div class="hidden sm:block">
             <code class="text-sm text-cyan-400 font-mono leading-relaxed">
-              Refinement → Milestone → Phases → PRDs → Implementation → Report → Loop
+              {flowSteps.join(' → ')}
             </code>
           </div>
 

@@ -1,74 +1,23 @@
 ---
-const prdContent = `---
-title: User Authentication Flow
-status: pending
-priority: high
-complexity: medium
-phase: phase-1
-milestone: milestone-1
----
+interface Props {
+  content: {
+    title: string
+    intro: string
+    fileName: string
+    prdContent: string
+  }
+}
 
-# User Authentication Flow
-
-## Description
-Implement email/password authentication with session
-management. Users should be able to sign up, log in,
-and maintain sessions across page refreshes.
-
-## Acceptance Criteria
-- [ ] User can sign up with email and password
-- [ ] User can log in with existing credentials
-- [ ] Session persists across page refreshes
-- [ ] Error messages displayed for invalid inputs
-- [ ] Password reset flow via email
-
-## Non-Functional Requirements
-- Response time < 200ms for auth endpoints
-- Passwords hashed with bcrypt (min 12 rounds)
-- Rate limiting: max 5 failed attempts per minute
-- HTTPS required for all auth endpoints
-
-## Unknowns, Risks, and Assumptions (URA)
-### Unknowns
-| Unknown | Why It Matters | Discovery Action | Decision Deadline | Owner | Status |
-|---------|----------------|------------------|-------------------|-------|--------|
-| Peak auth load profile | Affects session architecture | Run load test with synthetic traffic | 2026-03-12 | Backend Lead | open |
-
-### Assumptions
-| Assumption | Confidence (1-5) | Validation Method | Validation Date | Impact If False | Owner | Status |
-|------------|------------------|-------------------|-----------------|-----------------|-------|--------|
-| Redis cache can sustain p95 < 30ms | 3 | Benchmark in staging | 2026-03-14 | Platform Engineer | open |
-
-### Risks
-| Risk Statement (If..., then...) | Likelihood (1-5) | Impact (1-5) | Response | Trigger | Owner | Status |
-|---------------------------------|------------------|--------------|----------|---------|-------|--------|
-| If auth DB latency spikes, then login completion may drop | 3 | 4 | reduce | p95 DB latency > 150ms for 10m | Backend Lead | monitoring |
-
-## Technical Considerations
-- Use JWT tokens stored in httpOnly cookies
-- Refresh token rotation for extended sessions
-- Consider OAuth2 integration in a future PRD
-
-## Related Files
-- src/auth/handlers.ts
-- src/middleware/auth.ts
-- src/db/schema/users.ts
-
-## Out of Scope
-- Social login (Google, GitHub) — separate PRD
-- Two-factor authentication — separate PRD
-- Admin role management — phase-2`
+const { content } = Astro.props
 ---
 
 <section aria-label="PRD Example" class="border-b border-zinc-800/50">
   <div class="max-w-5xl mx-auto px-6 py-16 sm:py-32">
     <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-      What a PRD looks like
+      {content.title}
     </h2>
     <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
-      Each PRD is a self-contained unit of work — like a detailed Jira card in markdown.
-      It contains everything a coding agent needs to implement that specific piece:
-      acceptance criteria, non-functional requirements, URA, technical context, and clear boundaries.
+      {content.intro}
     </p>
 
     <div class="mt-12 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
@@ -76,9 +25,9 @@ and maintain sessions across page refreshes.
         <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
         <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
         <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
-        <span class="ml-2 text-xs text-zinc-500 font-mono">prd-user-auth.md</span>
+        <span class="ml-2 text-xs text-zinc-500 font-mono">{content.fileName}</span>
       </div>
-      <pre class="p-4 sm:p-6 overflow-x-auto max-h-[500px] sm:max-h-[600px]"><code class="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed">{prdContent}</code></pre>
+      <pre class="p-4 sm:p-6 overflow-x-auto max-h-[500px] sm:max-h-[600px]"><code class="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed">{content.prdContent}</code></pre>
     </div>
   </div>
 </section>

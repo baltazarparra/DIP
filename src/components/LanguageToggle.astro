@@ -1,0 +1,50 @@
+---
+interface Props {
+  locale: string
+}
+
+const { locale } = Astro.props
+const base = import.meta.env.BASE_URL || '/'
+const baseUrl = base.endsWith('/') ? base : base + '/'
+---
+
+<div class="flex items-center gap-1 rounded-lg border border-zinc-700 bg-zinc-900/50 p-1" id="lang-toggle">
+  <a
+    href={baseUrl}
+    data-lang="en"
+    class={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+      locale === 'en' ? 'bg-cyan-400/15 text-cyan-400' : 'text-zinc-400 hover:text-white'
+    }`}
+  >
+    EN
+  </a>
+  <a
+    href={`${baseUrl}pt/`}
+    data-lang="pt"
+    class={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+      locale === 'pt' ? 'bg-cyan-400/15 text-cyan-400' : 'text-zinc-400 hover:text-white'
+    }`}
+  >
+    PT
+  </a>
+</div>
+
+<script is:inline>
+  (function () {
+    var STORAGE_KEY = 'dip-lang'
+    function init() {
+      var toggle = document.getElementById('lang-toggle')
+      if (!toggle) return
+      toggle.querySelectorAll('a[data-lang]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          try { localStorage.setItem(STORAGE_KEY, link.getAttribute('data-lang') || '') } catch (e) {}
+        })
+      })
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init)
+    } else {
+      init()
+    }
+  })()
+</script>

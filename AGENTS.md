@@ -68,7 +68,7 @@ DIP/
 - Use Astro components (`.astro`) for all UI — no React/Vue unless interactivity requires it
 - Tailwind CSS for styling — no custom CSS unless Tailwind cannot achieve the design
 - Semantic HTML elements over generic divs
-- All user-facing content must be in English
+- Content available in EN and pt-BR; keep both `src/content/en.js` and `src/content/pt.js` in sync
 
 ## DIP Protocol Rules
 

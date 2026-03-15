@@ -1,77 +1,29 @@
 ---
-const steps = [
-  {
-    number: '01',
-    title: 'Refinement Meeting',
-    description: 'The entire team — Design, Product, Business, Technology — defines a milestone together. Cross-functional alignment ensures the milestone captures all perspectives before any code is written.',
-  },
-  {
-    number: '02',
-    title: 'Milestone Document',
-    description: 'The team produces a milestone.md — a comprehensive definition of the epic, including goals, scope, success criteria, constraints, and a URA baseline (Unknowns, Risks, Assumptions).',
-  },
-  {
-    number: '03',
-    title: 'Implementation Phases',
-    description: 'The development team breaks the milestone into coherent phases in implementation-phases.md. Each phase is a logical grouping of work that can be completed and validated independently, with a URA snapshot and exit gate.',
-  },
-  {
-    number: '04',
-    title: 'PRDs',
-    description: 'Each phase is broken down into individual PRDs — self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs: description, acceptance criteria, non-functional requirements, URA, and technical context.',
-  },
-  {
-    number: '05',
-    title: 'Implementation',
-    description: 'The agent picks up PRDs from the active phase and implements them one by one, validating assumptions, reducing unknowns, and reacting to risk triggers while meeting acceptance criteria.',
-  },
-  {
-    number: '06',
-    title: 'Phase Report',
-    description: 'When all PRDs in a phase are completed, a report is generated summarizing what was built, deviations from the plan, URA outcomes, and context needed for the next phase.',
-  },
-  {
-    number: '07',
-    title: 'Loop',
-    description: 'The cycle repeats for each phase until the milestone is complete. Each report anchors the next phase, preserving context across the entire implementation.',
-  },
-]
+interface Props {
+  content: {
+    title: string
+    intro: string
+    folderStructureLabel: string
+    folderStructureCode: string
+    steps: Array<{ number: string; title: string; description: string }>
+    folderStructure: string
+  }
+}
 
-const folderStructure = `project/
-├── AGENTS.md
-├── .cursor/
-│   └── rules/
-│       ├── dip-protocol.mdc
-│       ├── prd-writing.mdc
-│       ├── report-writing.mdc
-│       └── milestone-writing.mdc
-└── docs/
-    └── milestones/
-        └── milestone-1/
-            ├── milestone.md
-            ├── implementation-phases.md
-            ├── phases/
-            │   ├── phase-1/
-            │   │   ├── prd-user-auth.md
-            │   │   └── prd-database-schema.md
-            │   └── phase-2/
-            │       └── prd-api-endpoints.md
-            └── reports/
-                ├── report-phase-1.md
-                └── report-phase-2.md`
+const { content } = Astro.props
 ---
 
 <section aria-label="The Protocol" class="border-b border-zinc-800/50">
   <div class="max-w-5xl mx-auto px-6 py-16 sm:py-32">
     <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-      The Protocol
+      {content.title}
     </h2>
     <p class="mt-4 text-lg text-zinc-400 max-w-3xl">
-      Seven steps that transform a product vision into structured, agent-executable units of work while keeping uncertainty explicit.
+      {content.intro}
     </p>
 
     <ol class="mt-10 sm:mt-16 space-y-6 sm:space-y-8">
-      {steps.map((step) => (
+      {content.steps.map((step) => (
         <li class="flex gap-4 sm:gap-6 items-start">
           <span class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400 font-mono text-xs sm:text-sm font-bold">
             {step.number}
@@ -85,15 +37,15 @@ const folderStructure = `project/
     </ol>
 
     <div class="mt-20">
-      <h3 class="text-xl font-semibold text-white mb-6">Folder Structure</h3>
+      <h3 class="text-xl font-semibold text-white mb-6">{content.folderStructureLabel}</h3>
       <div class="rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
         <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 bg-zinc-900">
           <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
           <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
           <span class="w-3 h-3 rounded-full bg-zinc-700" aria-hidden="true"></span>
-          <span class="ml-2 text-xs text-zinc-500 font-mono">project structure</span>
+          <span class="ml-2 text-xs text-zinc-500 font-mono">{content.folderStructureCode}</span>
         </div>
-        <pre class="p-4 sm:p-6 overflow-x-auto"><code class="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed">{folderStructure}</code></pre>
+        <pre class="p-4 sm:p-6 overflow-x-auto"><code class="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed">{content.folderStructure}</code></pre>
       </div>
     </div>
   </div>

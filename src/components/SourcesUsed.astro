@@ -1,68 +1,22 @@
 ---
-const sources = [
-  {
-    title: 'ISO 31000:2018 — Risk management guidelines',
-    url: 'https://www.iso.org/iso-31000-risk-management.html',
-  },
-  {
-    title: 'The Orange Book (UK Government, 2025 update)',
-    url: 'https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts',
-  },
-  {
-    title: 'NIST SP 800-30 Rev.1 — Guide for Conducting Risk Assessments',
-    url: 'https://www.nist.gov/publications/guide-conducting-risk-assessments',
-  },
-  {
-    title: 'NIST SP 800-39 — Managing Information Security Risk',
-    url: 'https://www.nist.gov/publications/managing-information-security-risk-organization-mission-and-information-system-view',
-  },
-  {
-    title: 'DoD RIO Guide (2023, Change 2.2)',
-    url: 'https://www.cto.mil/wp-content/uploads/2023/11/RIO-2023-2-2.pdf',
-  },
-  {
-    title: 'NASA Risk Management Handbook v1 (2011)',
-    url: 'https://ntrs.nasa.gov/api/citations/20120000033/downloads/20120000033.pdf',
-  },
-  {
-    title: 'NASA Risk Management Handbook v2.0 Part 1 (2024)',
-    url: 'https://ntrs.nasa.gov/citations/20240014019',
-  },
-  {
-    title: 'NASA Risk Management Handbook v2.0 Part 2 (2024)',
-    url: 'https://ntrs.nasa.gov/citations/20240014326',
-  },
-  {
-    title: 'Google SRE Book — Embracing Risk',
-    url: 'https://sre.google/sre-book/embracing-risk/',
-  },
-  {
-    title: 'The Scrum Guide (2020)',
-    url: 'https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf',
-  },
-  {
-    title: 'RAND MR-114 — Assumption-Based Planning',
-    url: 'https://www.rand.org/pubs/monograph_reports/MR114.html',
-  },
-  {
-    title: 'SEI — Architecture Tradeoff Analysis Method (ATAM)',
-    url: 'https://www.sei.cmu.edu/library/architecture-tradeoff-analysis-method-collection/',
-  },
-  {
-    title: 'PMI — Assumptions-Based Planning paper',
-    url: 'https://www.pmi.org/learning/library/assumptions-based-planning-analyze-techniques-6582',
-  },
-]
+interface Props {
+  content: {
+    label: string
+    sources: Array<{ title: string; url: string }>
+  }
+}
+
+const { content } = Astro.props
 ---
 
 <section aria-label="Sources Used" class="border-t border-zinc-900 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6 py-14 sm:py-16">
     <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
-      Sources Used
+      {content.label}
     </p>
 
     <p class="mt-4 text-[11px] sm:text-xs leading-relaxed text-zinc-500 max-w-6xl">
-      {sources.map((source, index) => (
+      {content.sources.map((source, index) => (
         <>
           <a
             href={source.url}
@@ -73,7 +27,7 @@ const sources = [
             {source.title}
           </a>
           <span class="text-zinc-600"> ({source.url})</span>
-          {index < sources.length - 1 && <span class="text-zinc-700"> · </span>}
+          {index < content.sources.length - 1 && <span class="text-zinc-700"> · </span>}
         </>
       ))}
     </p>

@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import D20Scene from '../../components/D20Scene.astro'
+import Hero from '../../components/Hero.astro'
+import WhyDip from '../../components/WhyDip.astro'
+import Protocol from '../../components/Protocol.astro'
+import Artifacts from '../../components/Artifacts.astro'
+import PrdExample from '../../components/PrdExample.astro'
+import GettingStarted from '../../components/GettingStarted.astro'
+import SimplerFlow from '../../components/SimplerFlow.astro'
+import SourcesUsed from '../../components/SourcesUsed.astro'
+import Footer from '../../components/Footer.astro'
+import { getContent } from '../../lib/i18n'
+
+const locale = 'pt'
+const t = getContent(locale)
+---
+
+<Layout title={t.meta.title} description={t.meta.description} lang="pt-BR">
+  <D20Scene />
+  <main>
+    <Hero content={t.hero} nav={t.nav} locale={locale} />
+    <WhyDip content={t.whyDip} />
+    <Protocol content={t.protocol} />
+    <Artifacts content={t.artifacts} />
+    <PrdExample content={t.prdExample} />
+    <GettingStarted content={t.gettingStarted} />
+  </main>
+  <SimplerFlow content={t.simplerFlow} />
+  <Footer content={t.footer} />
+  <SourcesUsed content={t.sourcesUsed} />
+</Layout>

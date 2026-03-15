@@ -4,17 +4,21 @@ import '@/styles/global.css'
 interface Props {
   title?: string
   description?: string
+  lang?: string
 }
 
 const {
   title = 'DIP — Deep Implementation Protocol',
   description = 'A structured, document-driven protocol for agentic software development. Organize complex projects into milestones, phases, and PRDs for reliable AI-assisted implementation.',
+  lang = 'en',
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const base = import.meta.env.BASE_URL || '/'
+const baseUrl = base.endsWith('/') ? base : base + '/'
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,6 +54,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       }
     </style>
 
+    <script define:vars={{ baseUrl }}>
+      (function () {
+        const STORAGE_KEY = 'dip-lang'
+        const saved = localStorage.getItem(STORAGE_KEY)
+        if (!saved) return
+        const path = window.location.pathname
+        const isPt = path.includes('/pt/') || path.endsWith('/pt')
+        if (saved === 'pt' && !isPt) {
+          window.location.replace(baseUrl + 'pt/')
+        } else if (saved === 'en' && isPt) {
+          window.location.replace(baseUrl)
+        }
+      })()
+    </script>
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
