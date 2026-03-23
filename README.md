@@ -171,6 +171,12 @@ What should NOT be included.
 
 ---
 
+## Quality Verification
+
+DIP structures how agents build. The **Quality Verification Layer** extends the protocol with risk-tiered acceptance criteria, measurable quality gates, and phase exit criteria — so every DIP step also proves it works. For a full quality governance framework, see [Crivo](https://github.com/priscilanfs28/crivo).
+
+---
+
 ## Getting Started
 
 ### 1. Add the DIP structure
