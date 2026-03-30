@@ -7,7 +7,7 @@ phase: phase-1
 milestone: milestone-1
 ---
 
-<!-- DIP TEMPLATE — PRD (Product Requirements Document)
+<!-- Milestone template — PRD (Product Requirements Document)
      Each PRD is a self-contained unit of work, equivalent to a detailed Jira card.
      It contains everything a coding agent needs to implement this specific piece.
 

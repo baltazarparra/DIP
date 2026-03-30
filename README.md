@@ -1,19 +1,21 @@
-# DIP — Deep Implementation Protocol
+# Milestone
 
-A structured, document-driven protocol for agentic software development,
+A structured, document-driven workflow for agentic software development,
 designed for medium-to-high complexity projects.
 
-DIP bridges the gap between product vision and AI-assisted implementation by organizing work into **milestones**, **phases**, and **PRDs** while making **unknowns, risks, and assumptions** explicit — giving coding agents the context they need to build with precision.
+Milestone bridges the gap between product vision and AI-assisted implementation by organizing work into **milestone documents**, **phases**, and **PRDs** while making **unknowns, risks, and assumptions** explicit, giving coding agents the context they need to build with precision.
 
-[View Landing Page](https://baltazarparra.github.io/DIP) · [Get Started](#getting-started) · [Templates](./templates)
+[View Landing Page](https://baltazarparra.github.io/milestone) · [Get Started](#getting-started) · [Templates](./templates)
+
+`milestone.md` is the artifact that defines the current epic or delivery target. **Milestone** is the name of the overall workflow.
 
 ---
 
-## Why DIP?
+## Why Milestone?
 
-AI coding agents are powerful, but they struggle without structure. Throwing an entire epic at an agent produces inconsistent results. DIP solves this by breaking complex work into well-scoped, document-driven units that agents can execute reliably.
+AI coding agents are powerful, but they struggle without structure. Throwing an entire epic at an agent produces inconsistent results. Milestone solves this by breaking complex work into well-scoped, document-driven units that agents can execute reliably.
 
-**DIP is not a tool.** It's a protocol — a set of conventions and document templates that any team can adopt, regardless of which AI coding agent they use.
+**Milestone is not a tool.** It's a workflow of conventions and document templates that any team can adopt, regardless of which AI coding agent they use.
 
 ### The Problem
 
@@ -23,28 +25,28 @@ AI coding agents are powerful, but they struggle without structure. Throwing an 
 - Phase transitions lose context without documentation
 - Hidden assumptions and unresolved unknowns become late surprises
 
-### The Solution
+### The Approach
 
-DIP provides a repeatable loop:
+Milestone provides a repeatable loop:
 
 ```
 Refinement → Milestone → Phases → PRDs → Implementation → Report → Next Phase
 ```
 
-Each step produces a document that feeds into the next, creating a chain of context that keeps both humans and agents aligned.
-At every step, DIP tracks **URA** (`Unknowns, Risks, Assumptions`) to reduce avoidable surprises.
+Each step produces a document that feeds into the next, creating a chain of context that keeps humans and agents aligned.
+At every step, Milestone tracks **URA** (`Unknowns, Risks, Assumptions`) to reduce avoidable surprises.
 
 ---
 
-## The Protocol
+## The Workflow
 
 ### 1. Refinement Meeting
 
-The entire team (Design, Product, Business, Technology) defines a milestone/epic together. This cross-functional alignment ensures the milestone captures all perspectives before any code is written.
+The entire team (Design, Product, Business, Technology) defines a milestone or epic together. This cross-functional alignment ensures the milestone captures all perspectives before any code is written.
 
 ### 2. Milestone Document
 
-The team produces a `milestone.md` — a comprehensive definition of the epic, including goals, scope, success criteria, constraints, and a milestone-level URA baseline.
+The team produces a `milestone.md`, a comprehensive definition of the epic, including goals, scope, success criteria, constraints, and a milestone-level URA baseline.
 
 ### 3. Implementation Phases
 
@@ -52,7 +54,7 @@ The development team breaks the milestone into coherent phases in `implementatio
 
 ### 4. PRDs (Product Requirements Documents)
 
-Each phase is broken down into individual PRDs — self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs to implement that specific piece: description, acceptance criteria, non-functional requirements, URA, and technical considerations.
+Each phase is broken down into individual PRDs, self-contained documents that function like detailed Jira cards. A PRD contains everything a coding agent needs to implement that specific piece: description, acceptance criteria, non-functional requirements, URA, and technical considerations.
 
 ### 5. Implementation
 
@@ -70,12 +72,12 @@ The cycle repeats for each phase until the milestone is complete, carrying forwa
 
 ## Folder Structure
 
-```
+```text
 project/
 ├── AGENTS.md
 ├── .cursor/
 │   └── rules/
-│       ├── dip-protocol.mdc
+│       ├── milestone-workflow.mdc
 │       ├── prd-writing.mdc
 │       ├── report-writing.mdc
 │       └── milestone-writing.mdc
@@ -99,23 +101,23 @@ project/
 
 ## Agent Artifacts
 
-DIP integrates with AI coding agent artifacts to create a complete workflow:
+Milestone works with AI coding agent artifacts to create a complete workflow:
 
 | Artifact | Role | Purpose |
 |----------|------|---------|
-| **AGENTS.md** | The Map | Entry point for agents — points to the active milestone and phase |
-| **Cursor Rules** | The Guardrails | Automatic contextual guidance for document formatting, protocol compliance, and URA discipline |
+| **AGENTS.md** | The Map | Entry point for agents, pointing to the active milestone and phase |
+| **Cursor Rules** | The Guardrails | Automatic contextual guidance for document formatting, workflow compliance, and URA discipline |
 | **Skills** | The Tools | Repeatable actions for scaffolding milestones, phases, and reports |
 
 ---
 
 ## Managing Unknowns, Risks, and Assumptions (URA)
 
-DIP uses a lightweight URA model to make uncertainty explicit and actionable:
+Milestone uses a lightweight URA model to make uncertainty explicit and actionable:
 
 - **Unknowns**: open questions that require discovery before commitment
 - **Assumptions**: beliefs currently treated as true and needing validation
-- **Risks**: potential events that can impact outcomes (tracked with `If..., then...` statements)
+- **Risks**: potential events that can impact outcomes, tracked with `If..., then...` statements
 
 When a risk materializes, it becomes an issue and is reported. When a critical assumption fails, the team re-plans before continuing.
 
@@ -173,7 +175,7 @@ What should NOT be included.
 
 ## Getting Started
 
-### 1. Add the DIP structure
+### 1. Add the Milestone structure
 
 Create the folder structure in your project:
 
@@ -191,7 +193,7 @@ Add an `AGENTS.md` to your project root that points to the active milestone and 
 
 ### 4. Add Cursor Rules (optional)
 
-If you use Cursor, add the [DIP rules](./templates/rules/) to `.cursor/rules/` for automatic guidance when writing protocol documents.
+If you use Cursor, add the [Milestone rules](./templates/rules/) to `.cursor/rules/` for automatic guidance when writing workflow documents.
 
 ### 5. Run a refinement meeting
 
@@ -203,7 +205,7 @@ Gather your team, define a milestone, set the initial URA baseline, and start th
 
 This repo serves a dual purpose:
 
-- **Landing page** — A static site explaining the DIP protocol, hosted on GitHub Pages
+- **Landing page** — A static site explaining Milestone, hosted on GitHub Pages
 - **Templates** — Downloadable document templates that teams can copy into their projects
 
 ### Running the landing page locally

@@ -1,13 +1,13 @@
 # AGENTS.md
 
-<!-- DIP TEMPLATE — AGENTS.md
+<!-- Milestone template — AGENTS.md
      This is the entry point for AI coding agents working on your project.
-     It tells the agent what protocol to follow, where to find the active work,
+     It tells the agent what workflow to follow, where to find the active work,
      and how to navigate the project. Update this file every time the active
      milestone or phase changes.
 -->
 
-This project follows the **DIP — Deep Implementation Protocol**.
+This project follows the **Milestone** workflow.
 
 ## Active Milestone
 
@@ -24,7 +24,7 @@ This project follows the **DIP — Deep Implementation Protocol**.
 5. Review active URA items (Unknowns, Risks, Assumptions) in milestone, phase plan, and PRDs
 6. Only work on PRDs with status `pending` or `in-progress`
 
-## Protocol Flow
+## Workflow
 
 ```
 Refinement → Milestone → Phases → PRDs → Implementation → Report → Next Phase
@@ -62,7 +62,7 @@ npm run build        # Build for production
 ```
 project/
 ├── AGENTS.md                              # This file
-├── .cursor/rules/                         # DIP protocol rules
+├── .cursor/rules/                         # Milestone rules
 ├── docs/milestones/                       # All milestones
 │   └── milestone-1/
 │       ├── milestone.md                   # Milestone definition

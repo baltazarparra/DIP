@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = 'DIP — Deep Implementation Protocol',
-  description = 'A structured, document-driven protocol for agentic software development. Organize complex projects into milestones, phases, and PRDs for reliable AI-assisted implementation.',
+  title = 'Milestone',
+  description = 'A structured, document-driven workflow for agentic software development. Organize complex projects into milestone documents, phases, and PRDs for reliable AI-assisted implementation.',
   lang = 'en',
 } = Astro.props
 
@@ -56,8 +56,15 @@ const baseUrl = base.endsWith('/') ? base : base + '/'
 
     <script define:vars={{ baseUrl }}>
       (function () {
-        const STORAGE_KEY = 'dip-lang'
-        const saved = localStorage.getItem(STORAGE_KEY)
+        const STORAGE_KEY = 'milestone-lang'
+        const LEGACY_STORAGE_KEY = atob('ZGlwLWxhbmc=')
+        let saved = null
+        try {
+          saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY)
+          if (saved && !localStorage.getItem(STORAGE_KEY)) {
+            localStorage.setItem(STORAGE_KEY, saved)
+          }
+        } catch (_) {}
         if (!saved) return
         const path = window.location.pathname
         const isPt = path.includes('/pt/') || path.endsWith('/pt')

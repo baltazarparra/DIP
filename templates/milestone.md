@@ -4,7 +4,7 @@ status: active
 created: YYYY-MM-DD
 ---
 
-<!-- DIP TEMPLATE — milestone.md
+<!-- Milestone template — milestone.md
      This document defines a milestone/epic. It is produced during the refinement
      meeting with the full team (Design, Product, Business, Technology).
 

@@ -1,26 +1,26 @@
 export default {
   meta: {
-    title: 'DIP — Protocolo de implementação',
+    title: 'Milestone',
     description:
-      'Um protocolo estruturado e documentado pra desenvolvimento com agentes de IA. Organiza projetos complexos em marcos, fases e PRDs pra implementação confiável.',
+      'Um fluxo estruturado e documentado pra desenvolvimento com agentes de IA. Organiza projetos complexos em marcos, fases e PRDs pra implementação confiável.',
   },
   nav: {
     getStarted: 'Começar',
     github: 'GitHub',
   },
   hero: {
-    badge: 'Protocolo Aberto',
-    titleLine1: 'Protocolo',
-    titleLine2: 'de implementação',
+    badge: 'Fluxo Aberto',
+    titleLine1: 'Milestone',
+    titleLine2: 'para entregas com IA',
     subtitle:
-      'Um protocolo estruturado e documentado pra desenvolvimento com agentes de código. Organiza projetos complexos em marcos, fases e PRDs — pra dar contexto pros agentes e implementar com precisão.',
+      'Um fluxo estruturado e documentado pra desenvolvimento com agentes de código. Organiza projetos complexos em marcos, fases e PRDs e dá aos agentes o contexto necessário pra implementar com precisão.',
     cta: 'Começar',
     ctaSecondary: 'Ver no GitHub',
   },
-  whyDip: {
-    title: 'Por que o DIP?',
+  whyMilestone: {
+    title: 'Por que Milestone?',
     intro:
-      'Agentes de código são poderosos, mas sem estrutura eles se enrolam. Jogar um épico inteiro pra um agente gera resultado inconsistente. O DIP resolve isso quebrando o trabalho em partes bem definidas e documentadas que os agentes conseguem executar de forma confiável.',
+      'Agentes de código são poderosos, mas sem estrutura eles se enrolam. Jogar um épico inteiro pra um agente gera resultado inconsistente. O Milestone resolve isso quebrando o trabalho em partes bem definidas e documentadas que os agentes conseguem executar de forma confiável.',
     problem: {
       title: 'O Problema',
       items: [
@@ -32,15 +32,15 @@ export default {
       ],
     },
     solution: {
-      title: 'A Solução',
-      body: 'O DIP oferece um ciclo repetível onde cada passo gera um documento que alimenta o próximo, criando uma corrente de contexto que mantém humanos e agentes alinhados, incluindo o acompanhamento contínuo de URA.',
+      title: 'A abordagem',
+      body: 'O Milestone cria um ciclo repetível onde cada passo gera um documento que alimenta o próximo, criando uma corrente de contexto que mantém humanos e agentes alinhados enquanto a URA continua visível.',
       flowSteps: ['Refinamento', 'Marco', 'Fases', 'PRDs', 'Implementação', 'Relatório', 'Loop'],
     },
   },
   protocol: {
-    title: 'O Protocolo',
+    title: 'O Fluxo',
     intro:
-      'Sete passos que transformam uma visão de produto em unidades de trabalho estruturadas e executáveis por agentes, mantendo a incerteza explícita.',
+      'Sete passos que transformam uma visão de produto em trabalho estruturado e executável por agentes, mantendo a incerteza explícita.',
     folderStructureLabel: 'Estrutura de Pastas',
     folderStructureCode: 'estrutura do projeto',
     steps: [
@@ -91,7 +91,7 @@ export default {
 ├── AGENTS.md
 ├── .cursor/
 │   └── rules/
-│       ├── dip-protocol.mdc
+│       ├── milestone-workflow.mdc
 │       ├── prd-writing.mdc
 │       ├── report-writing.mdc
 │       └── milestone-writing.mdc
@@ -113,7 +113,7 @@ export default {
   artifacts: {
     title: 'Artefatos do Agente',
     intro:
-      'O DIP se integra com os artefatos do agente de código pra criar um fluxo completo. Três camadas que se complementam sem sobrepor.',
+      'O Milestone funciona junto com os artefatos do agente de código pra criar um fluxo completo. Três camadas que se complementam sem sobrepor.',
     items: [
       {
         name: 'AGENTS.md',
@@ -208,13 +208,13 @@ and maintain sessions across page refreshes.
   },
   gettingStarted: {
     title: 'Começando',
-    intro: 'Adote o DIP no seu projeto em cinco passos. O protocolo funciona com qualquer stack e qualquer agente de código.',
+    intro: 'Adote Milestone no seu projeto em cinco passos. O fluxo funciona com qualquer stack e qualquer agente de código.',
     ctaText: 'Todos os templates, regras e exemplos estão no repositório.',
     ctaButton: 'Ver templates no GitHub',
     steps: [
       {
         number: '1',
-        title: 'Adicionar a estrutura do DIP',
+        title: 'Adicionar a estrutura do Milestone',
         description:
           'Crie a estrutura de pastas no seu projeto pra abrigar marcos, fases e relatórios.',
         code: 'mkdir -p docs/milestones/milestone-1/{phases/phase-1,reports}',
@@ -223,21 +223,21 @@ and maintain sessions across page refreshes.
         number: '2',
         title: 'Copiar os templates',
         description:
-          'Baixe os templates do DIP e coloque no seu projeto. Cada template inclui diretrizes de formatação, estrutura de URA e instruções inline para agentes de IA.',
+          'Baixe os templates do Milestone e coloque no seu projeto. Cada template inclui diretrizes de formatação, estrutura de URA e instruções inline para agentes de IA.',
         code: null,
       },
       {
         number: '3',
         title: 'Configurar seu AGENTS.md',
         description:
-          'Adicione um AGENTS.md na raiz do projeto declarando que o projeto segue o DIP, apontando pro marco ativo e identificando a fase atual.',
+          'Adicione um AGENTS.md na raiz do projeto declarando que o projeto segue Milestone, apontando pro marco ativo e identificando a fase atual.',
         code: null,
       },
       {
         number: '4',
         title: 'Adicionar Cursor Rules',
         description:
-          'Copie as regras do DIP pra .cursor/rules/ pra orientação automática ao escrever documentos do protocolo. As regras impõem formato de PRD, estrutura de relatório e conformidade com o protocolo.',
+          'Copie as regras do Milestone pra .cursor/rules/ pra orientação automática ao escrever documentos do fluxo. As regras impõem formato de PRD, estrutura de relatório e conformidade com o fluxo.',
         code: 'cp templates/rules/*.mdc .cursor/rules/',
       },
       {
@@ -255,11 +255,11 @@ and maintain sessions across page refreshes.
     cta: 'Acessar o guia',
   },
   footer: {
-    tagline: 'Protocolo de implementação',
+    tagline: 'Marcos, fases e PRDs para times com IA',
     github: 'GitHub',
     templates: 'Templates',
     license: 'MIT License',
-    copyright: 'DIP — Protocolo de implementação. Open source sob a MIT License.',
+    copyright: 'Milestone. Open source sob a MIT License.',
   },
   sourcesUsed: {
     label: 'Fontes Utilizadas',

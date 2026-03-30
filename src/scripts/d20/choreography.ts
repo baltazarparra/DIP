@@ -49,7 +49,7 @@ export function initChoreography(): void {
     0,
   )
 
-  // WhyDip (0.12 - 0.28): drift bottom-right, shrink, tilt
+  // WhyMilestone (0.12 - 0.28): drift bottom-right, shrink, tilt
   tl.to(
     diamondState,
     {

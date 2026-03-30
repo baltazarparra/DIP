@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import D20Scene from '../components/D20Scene.astro'
 import Hero from '../components/Hero.astro'
-import WhyDip from '../components/WhyDip.astro'
+import WhyMilestone from '../components/WhyMilestone.astro'
 import Protocol from '../components/Protocol.astro'
 import Artifacts from '../components/Artifacts.astro'
 import PrdExample from '../components/PrdExample.astro'
@@ -20,7 +20,7 @@ const t = getContent(locale)
   <D20Scene />
   <main>
     <Hero content={t.hero} nav={t.nav} locale={locale} />
-    <WhyDip content={t.whyDip} />
+    <WhyMilestone content={t.whyMilestone} />
     <Protocol content={t.protocol} />
     <Artifacts content={t.artifacts} />
     <PrdExample content={t.prdExample} />

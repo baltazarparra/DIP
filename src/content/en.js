@@ -1,26 +1,26 @@
 export default {
   meta: {
-    title: 'DIP — Deep Implementation Protocol',
+    title: 'Milestone',
     description:
-      'A structured, document-driven protocol for agentic software development. Organize complex projects into milestones, phases, and PRDs for reliable AI-assisted implementation.',
+      'A structured, document-driven workflow for agentic software development. Organize complex projects into milestone documents, phases, and PRDs for reliable AI-assisted implementation.',
   },
   nav: {
     getStarted: 'Get Started',
     github: 'GitHub',
   },
   hero: {
-    badge: 'Open Protocol',
-    titleLine1: 'Deep Implementation',
-    titleLine2: 'Protocol',
+    badge: 'Open Workflow',
+    titleLine1: 'Milestone',
+    titleLine2: 'for AI delivery',
     subtitle:
-      'A structured, document-driven protocol for agentic software development. Organize complex projects into milestones, phases, and PRDs — giving AI coding agents the context they need to build with precision.',
+      'A structured, document-driven workflow for agentic software development. Organize complex projects into milestone documents, phases, and PRDs, giving AI coding agents the context they need to build with precision.',
     cta: 'Get Started',
     ctaSecondary: 'View on GitHub',
   },
-  whyDip: {
-    title: 'Why DIP?',
+  whyMilestone: {
+    title: 'Why Milestone?',
     intro:
-      'AI coding agents are powerful, but they struggle without structure. Throwing an entire epic at an agent produces inconsistent results. DIP solves this by breaking complex work into well-scoped, document-driven units that agents can execute reliably.',
+      'AI coding agents are powerful, but they struggle without structure. Throwing an entire epic at an agent produces inconsistent results. Milestone solves this by breaking complex work into well-scoped, document-driven units that agents can execute reliably.',
     problem: {
       title: 'The Problem',
       items: [
@@ -32,15 +32,15 @@ export default {
       ],
     },
     solution: {
-      title: 'The Solution',
-      body: 'DIP provides a repeatable loop where each step produces a document that feeds into the next, creating a chain of context that keeps both humans and agents aligned, including continuous URA tracking.',
+      title: 'The Approach',
+      body: 'Milestone creates a repeatable loop where each step produces a document that feeds the next one, creating a chain of context that keeps humans and agents aligned while URA stays visible.',
       flowSteps: ['Refinement', 'Milestone', 'Phases', 'PRDs', 'Implementation', 'Report', 'Loop'],
     },
   },
   protocol: {
-    title: 'The Protocol',
+    title: 'The Workflow',
     intro:
-      'Seven steps that transform a product vision into structured, agent-executable units of work while keeping uncertainty explicit.',
+      'Seven steps that turn product intent into structured, agent-executable work while keeping uncertainty explicit.',
     folderStructureLabel: 'Folder Structure',
     folderStructureCode: 'project structure',
     steps: [
@@ -91,7 +91,7 @@ export default {
 ├── AGENTS.md
 ├── .cursor/
 │   └── rules/
-│       ├── dip-protocol.mdc
+│       ├── milestone-workflow.mdc
 │       ├── prd-writing.mdc
 │       ├── report-writing.mdc
 │       └── milestone-writing.mdc
@@ -113,7 +113,7 @@ export default {
   artifacts: {
     title: 'Agent Artifacts',
     intro:
-      'DIP integrates with AI coding agent artifacts to create a complete workflow. Three layers that complement each other without overlap.',
+      'Milestone works with AI coding agent artifacts to create a complete workflow. Three layers that complement each other without overlap.',
     items: [
       {
         name: 'AGENTS.md',
@@ -208,36 +208,36 @@ and maintain sessions across page refreshes.
   },
   gettingStarted: {
     title: 'Getting Started',
-    intro: 'Adopt DIP in your project in five steps. The protocol works with any tech stack and any AI coding agent.',
+    intro: 'Adopt Milestone in your project in five steps. The workflow works with any tech stack and any AI coding agent.',
     ctaText: 'All templates, rules, and examples are available in the repository.',
     ctaButton: 'View Templates on GitHub',
     steps: [
       {
         number: '1',
-        title: 'Add the DIP structure',
+        title: 'Add the Milestone structure',
         description:
-          'Create the folder structure in your project to house milestones, phases, and reports.',
+          'Create the folder structure in your project to house milestone documents, phases, and reports.',
         code: 'mkdir -p docs/milestones/milestone-1/{phases/phase-1,reports}',
       },
       {
         number: '2',
         title: 'Copy the templates',
         description:
-          'Download the DIP templates and place them in your project. Each template includes formatting guidelines, URA structure, and inline instructions for AI agents.',
+          'Download the Milestone templates and place them in your project. Each template includes formatting guidelines, URA structure, and inline instructions for AI agents.',
         code: null,
       },
       {
         number: '3',
         title: 'Configure your AGENTS.md',
         description:
-          'Add an AGENTS.md to your project root that declares the project follows DIP, points to the active milestone, and identifies the current phase.',
+          'Add an AGENTS.md to your project root that declares the project follows Milestone, points to the active milestone, and identifies the current phase.',
         code: null,
       },
       {
         number: '4',
         title: 'Add Cursor Rules',
         description:
-          'Copy the DIP rules to .cursor/rules/ for automatic guidance when writing protocol documents. Rules enforce PRD format, report structure, and protocol compliance.',
+          'Copy the Milestone rules to .cursor/rules/ for automatic guidance when writing workflow documents. Rules enforce PRD format, report structure, and workflow compliance.',
         code: 'cp templates/rules/*.mdc .cursor/rules/',
       },
       {
@@ -255,11 +255,11 @@ and maintain sessions across page refreshes.
     cta: 'Open the guide',
   },
   footer: {
-    tagline: 'Deep Implementation Protocol',
+    tagline: 'Milestones, phases, and PRDs for AI teams',
     github: 'GitHub',
     templates: 'Templates',
     license: 'MIT License',
-    copyright: 'DIP — Deep Implementation Protocol. Open source under the MIT License.',
+    copyright: 'Milestone. Open source under the MIT License.',
   },
   sourcesUsed: {
     label: 'Sources Used',

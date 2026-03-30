@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://baltazarparra.github.io',
-  base: '/DIP',
+  base: '/milestone',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'pt'],

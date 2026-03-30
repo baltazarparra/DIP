@@ -1,12 +1,12 @@
 ---
-description: Core DIP protocol rules — ensures the agent follows the Deep Implementation Protocol workflow
+description: Core Milestone workflow rules — ensures the agent follows the Milestone workflow
 globs:
 alwaysApply: true
 ---
 
-# DIP — Deep Implementation Protocol
+# Milestone Workflow
 
-This project follows the DIP protocol. You MUST follow these rules for every task.
+This project follows the Milestone workflow. You MUST follow these rules for every task.
 
 ## Before Starting Any Work
 

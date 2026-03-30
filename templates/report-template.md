@@ -4,7 +4,7 @@ milestone: milestone-1
 completed: YYYY-MM-DD
 ---
 
-<!-- DIP TEMPLATE — Phase Report
+<!-- Milestone template — Phase Report
      This document is generated after ALL PRDs in a phase are completed.
      It serves as the context anchor for the next phase — agents read this
      before starting the next phase to understand what was built and any

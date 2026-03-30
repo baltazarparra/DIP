@@ -4,7 +4,7 @@ total_phases: 3
 current_phase: phase-1
 ---
 
-<!-- DIP TEMPLATE — implementation-phases.md
+<!-- Milestone template — implementation-phases.md
      This document breaks the milestone into coherent implementation phases
      and tracks progress across all phases and their PRDs.
 

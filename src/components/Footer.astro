@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { content } = Astro.props
-const repoUrl = 'https://github.com/baltazarparra/DIP'
+const repoUrl = 'https://github.com/baltazarparra/milestone'
 const year = new Date().getFullYear()
 const baseUrl = import.meta.env.BASE_URL
 ---
@@ -20,7 +20,7 @@ const baseUrl = import.meta.env.BASE_URL
     <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-6">
         <a href={baseUrl} class="text-white font-bold text-lg tracking-tight">
-          DIP
+          M
         </a>
         <span class="text-zinc-600 text-sm">{content.tagline}</span>
       </div>
@@ -35,7 +35,7 @@ const baseUrl = import.meta.env.BASE_URL
           {content.github}
         </a>
         <a
-          href={`${repoUrl}/blob/main/templates`}
+          href={`${repoUrl}/tree/main/templates`}
           target="_blank"
           rel="noopener noreferrer"
           class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"

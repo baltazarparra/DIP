@@ -1,28 +1,23 @@
 # AGENTS.md
 
-This project is the **DIP — Deep Implementation Protocol** repository, which contains:
+This project is the **Milestone** repository, which contains:
 
 1. A static landing page (Astro + Tailwind CSS) deployed to GitHub Pages
-2. Downloadable document templates for teams adopting the DIP protocol
+2. Downloadable document templates for teams adopting the Milestone workflow
 
 ## Project Overview
 
-DIP is a structured, document-driven protocol for agentic software development. It organizes complex projects into milestones, phases, and PRDs (Product Requirements Documents), giving AI coding agents the context they need to implement features reliably.
-DIP also requires explicit management of URA (Unknowns, Risks, Assumptions) across milestone, phase, PRD, and report documents.
+Milestone is a structured, document-driven workflow for agentic software development. It organizes complex projects into milestone documents, phases, and PRDs (Product Requirements Documents), giving AI coding agents the context they need to implement features reliably.
+Milestone also requires explicit management of URA (Unknowns, Risks, Assumptions) across milestone, phase, PRD, and report documents.
 
-This repository itself follows the DIP protocol.
+This repository hosts the public website and the downloadable templates for that workflow.
 
-## Active Milestone
+## Repository Scope
 
-- **Current milestone**: See `docs/milestones/` for the active milestone directory
-- **Current phase**: Check `implementation-phases.md` inside the active milestone for phase status
-
-Before starting any work, always:
-1. Read the active milestone's `milestone.md` to understand the goal
-2. Read `implementation-phases.md` to identify the current phase
-3. Read all PRDs in the active phase's directory
-4. Check reports from previous phases for context
-5. Review active URA items (Unknowns, Risks, Assumptions)
+- This repository does not currently keep active implementation artifacts under `docs/milestones/`
+- Unless the user explicitly asks to add workflow documents, treat `src/`, `templates/`, `public/`, and the root config files as the active scope
+- When editing the website, keep EN and pt-BR content synchronized
+- When editing templates, keep README examples and rule names in sync
 
 ## Setup Commands
 
@@ -41,21 +36,21 @@ npm run preview      # Preview production build locally
 
 ## Project Structure
 
-```
-DIP/
+```text
+milestone/
 ├── src/                    # Landing page source code (Astro)
 │   ├── layouts/            # Page layouts
 │   ├── components/         # UI components (.astro)
 │   ├── pages/              # Route pages
 │   └── styles/             # Global styles
-├── templates/              # DIP protocol templates (downloadable)
+├── templates/              # Milestone workflow templates (downloadable)
 │   ├── AGENTS.md           # AGENTS.md template for adopters
 │   ├── milestone.md        # Milestone document template
 │   ├── implementation-phases.md
 │   ├── prd-template.md     # PRD template
-│   └── report-template.md  # Phase report template
-├── docs/                   # This project's own DIP docs
-│   └── milestones/         # Milestone directories
+│   ├── report-template.md  # Phase report template
+│   └── rules/              # Editor rules for the workflow
+├── public/                 # Static assets
 ├── AGENTS.md               # This file
 ├── README.md               # Human-facing README
 ├── astro.config.mjs        # Astro configuration
@@ -65,21 +60,17 @@ DIP/
 ## Code Style
 
 - TypeScript strict mode
-- Use Astro components (`.astro`) for all UI — no React/Vue unless interactivity requires it
-- Tailwind CSS for styling — no custom CSS unless Tailwind cannot achieve the design
+- Use Astro components (`.astro`) for all UI; no React/Vue unless interactivity requires it
+- Tailwind CSS for styling; no custom CSS unless Tailwind cannot achieve the design
 - Semantic HTML elements over generic divs
-- Content available in EN and pt-BR; keep both `src/content/en.js` and `src/content/pt.js` in sync
+- Keep branding consistent as `Milestone` with `M` as the compact brand mark
+- Keep both `src/content/en.js` and `src/content/pt.js` in sync
 
-## DIP Protocol Rules
+## Workflow Notes
 
-This project follows the DIP protocol. When working on implementation:
-
-- Never skip reading the active phase's PRDs before starting work
-- Mark PRD status as `in-progress` when you begin and `completed` when done
-- Keep URA entries current and escalate invalidated critical assumptions
-- After completing all PRDs in a phase, generate a phase report before moving to the next phase
-- Update `implementation-phases.md` to reflect phase completion status
-- Do not modify documents from completed phases unless explicitly asked
+- If this repository later gains `docs/milestones/`, follow the Milestone workflow end to end
+- Keep URA terminology and template structure consistent across AGENTS, rules, milestone, phase, PRD, and report documents
+- Do not modify completed workflow documents unless explicitly asked
 
 ## Testing & Validation
 
@@ -87,7 +78,7 @@ This project follows the DIP protocol. When working on implementation:
 npm run build        # Verify the site builds without errors
 ```
 
-Ensure all links in the landing page resolve correctly and all template files are valid markdown.
+Ensure all landing-page links resolve correctly and all template files remain valid markdown.
 
 ## Git Conventions
 

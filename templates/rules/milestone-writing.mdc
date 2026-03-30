@@ -1,5 +1,5 @@
 ---
-description: Enforces milestone document format for DIP protocol milestone definitions
+description: Enforces milestone document format for the Milestone workflow
 globs:
   - docs/milestones/**/milestone.md
 alwaysApply: false
@@ -7,7 +7,7 @@ alwaysApply: false
 
 # Milestone Document Standards
 
-You are editing a milestone document that follows the DIP protocol.
+You are editing a milestone document that follows the Milestone workflow.
 
 ## Required Frontmatter
 
